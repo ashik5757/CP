@@ -26,8 +26,8 @@ typedef set<string> ss;
 #define in_si(set,n) for(ll i=0;i<n;i++){int tmp;cin>>tmp;set.insert(tmp);};
 #define in_ss(set,n) for(ll i=0;i<n;i++){string tmp;cin>>tmp;set.insert(tmp);};
 
-#define toLower(s) transform(s.begin(),s.end(),s.begin(),::tolower);
-#define toUpper(s) transform(s.begin(),s.end(),s.begin(),::toupper);
+#define toLower_str(s) transform(s.begin(),s.end(),s.begin(),::tolower);
+#define toUpper_str(s) transform(s.begin(),s.end(),s.begin(),::toupper);
 #define sort_i(arr) sort(arr,arr+n);
 #define sort_s(str) sort(str.begin(),str.end());
 #define print_arr(arr,n) for(ll i=0;i<n;i++)cout<<arr[i]<<" ";cout<<endl;
