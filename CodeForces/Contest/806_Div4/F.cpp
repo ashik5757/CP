@@ -42,47 +42,6 @@ typedef set<string> ss;
 void solve() {
 
 
-    int n = in_i;
-    string arr[n];
-    
-    for(int i=0; i<n; i++) {
-        cin >> arr[i];
-    }
-
-    int count = 0;
-
-    for(int i=1; i<=n/2; i++) {
-        
-        
-        int end = n-i;
-        int col = n-i;
-        int row = n-i;
-
-        for(int j=i-1; j<n-i; j++) {
-
-            int zero = 0;
-
-            if(arr[i-1].at(j)=='0')
-                zero++;
-            if(arr[j].at(end)=='0')
-                zero++;
-            if(arr[row].at(i-1)=='0')
-                zero++;
-            if(arr[end].at(col)=='0')
-                zero++;
-
-            
-            int one = 4-zero;
-            //cout << zero << " " << one << " = " << i-1 << " " << j << endl;
-            count+=min(zero,one);
-
-            col--;
-            row--;
-            
-        }
-    }
-
-    println(count);
 
 
 }
