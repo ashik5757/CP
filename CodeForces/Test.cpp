@@ -38,6 +38,10 @@ typedef set<string> ss;
 
 void solve() {
 
+    string s = in_s;
+
+    for(int j=0; j<s.size(); j++)
+        cout << s.substr(0,j) << " " << s.substr(j,s.size()-1) << endl;
 
 
 

@@ -33,6 +33,7 @@ typedef set<string> ss;
 #define print_arr(arr,n) for(ll i=0;i<n;i++)cout<<arr[i]<<" ";cout<<endl;
 #define print_arr2(arr,r,c) for(ll i=0;i<r;i++){for(ll j=0;j<c;j++){cout<<arr[i][j]<<" ";}cout<<endl;}
 #define println(p) cout<<p<<endl
+#define BR cout << endl
 
 
 
@@ -41,31 +42,30 @@ void solve() {
     int n = in_i;
 
     string s[n];
-    in_arr(s,n);
+    ss st;
 
-    string ans;
 
-    
     for(int i=0; i<n; i++) {
-        bool found = false;
-        for(int j=0; j<n; j++) {
-            for(int k=0; k<n; k++) {
-                if(s[i]==s[j]+s[k] && j!=i && k!=i) {
-                    ans.append("1");
-                    found = true;
-                    break;
-                }
-            }
-            if(found)
-                break;
-        }
-
-        if(!found)
-            ans.append("0");
+        cin >> s[i];
+        st.insert(s[i]);
     }
 
+    
 
-    println(ans);
+    for(int i=0; i<n; i++) {
+        bool found = false;
+        for(int j=0; j<s[i].size(); j++) {
+            if(st.count(s[i].substr(0,j+1))==1 && st.count(s[i].substr(j+1,s[i].size()))==1){
+                cout << "1";
+                found = true;
+                break;
+            }
+        }
+        if(!found)
+            cout << "0";
+    }
+
+    cout << endl;
 
 
 }
