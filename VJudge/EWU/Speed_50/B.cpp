@@ -15,7 +15,6 @@ typedef set<string> ss;
 #define NO cout<<"NO"<<endl
 #define yes cout<<"yes"<<endl
 #define no cout<<"no"<<endl
-#define BR cout << endl
 
 #define in_i ({int tmp; cin>>tmp; tmp;})
 #define in_ll ({ll tmp; cin>>tmp; tmp;})
@@ -41,26 +40,19 @@ typedef set<string> ss;
 
 void solve() {
 
+
     ll n = in_ll;
-    ll a[n];
+
+    ll x = ceil(n/1.08);
+
+    if(floor(1.08*x)==n)
+        println(x);
+
+    else
+        println(":(");
 
 
-        
-    ll count = 0;
-    for(ll i=0; i<n; i++) {
-        cin >> a[i];
 
-        if(a[i]<i+1 && i!=0) {
-
-            ll l = i-1;
-            while(l--) {
-                if(a[l]<a[i] && l+1<a[i] && a[l]<l+1)
-                    count++;
-            }
-        }
-    }
-
-    println(count);
 
 
 
@@ -70,9 +62,8 @@ void solve() {
 
 int main() {
 
-    int t = in_i;
-    while(t--) 
-        solve();
+
+    solve();
 
 
     system("pause");
@@ -80,3 +71,4 @@ int main() {
     return 0;
 
 }
+

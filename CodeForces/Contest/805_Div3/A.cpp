@@ -41,29 +41,13 @@ typedef set<string> ss;
 
 void solve() {
 
-    ll n = in_ll;
-    ll a[n];
+    string m = in_s;
 
+    int p = m.size()-1;
+    ll ans = stol(m)-pow(10,p);
+    println(ans);
 
-        
-    ll count = 0;
-    for(ll i=0; i<n; i++) {
-        cin >> a[i];
-
-        if(a[i]<i+1 && i!=0) {
-
-            ll l = i-1;
-            while(l--) {
-                if(a[l]<a[i] && l+1<a[i] && a[l]<l+1)
-                    count++;
-            }
-        }
-    }
-
-    println(count);
-
-
-
+    
 
 }
 
