@@ -7,6 +7,7 @@ typedef vector<int> vi;
 typedef vector<string> vs;
 typedef vector<ll> vll;
 typedef map<int,int> mii;
+typedef map<ll,ll> mll;
 typedef map<string,int> msi;
 typedef set<int> si;
 typedef set<string> ss;
@@ -41,7 +42,37 @@ typedef set<string> ss;
 
 void solve() {
 
- 
+    ll n = in_ll;
+    ll k = in_ll;
+
+    vll v;
+
+    for(int i=0; i<n; i++) {
+        ll tmp = in_ll;
+        v.push_back(tmp);
+    }
+    
+
+    ll arrk[k][2];
+    in_arr2(arrk,k,2);
+
+    for(int i=0; i<k; i++) {
+        
+        auto it1 = find(v.begin(),v.end(),arrk[i][0]);
+        auto it2 = find(it1,v.end(),arrk[i][1]);
+
+        if(it2==v.end() && arrk[i][1]!=*it2) 
+            NO;
+        
+        else {
+
+            if(it1-v.begin() < it2-v.begin())
+                YES;
+            else
+                NO;
+        }
+            
+    }
 
 
 }

@@ -41,17 +41,28 @@ typedef set<string> ss;
 
 void solve() {
 
- 
 
+    int x,y,n;
+    cin >> x >> y >> n;
+
+    if(3*x < y)
+        println(n*x);
+    else if(3*x > y) {
+        if(n<3)
+            println(n*x);
+        else {
+            int yy = (int)(n/3);
+            println((yy*y) + (n-(yy*3))*x);
+        }
+    }
 
 }
 
 
 int main() {
 
-    int t = in_i;
-    while(t--) 
-        solve();
+
+    solve();
 
 
     system("pause");

@@ -41,7 +41,46 @@ typedef set<string> ss;
 
 void solve() {
 
- 
+    ll n,m,t;
+    cin >> n >> m >> t;
+
+    ll a[n-1];
+    for(ll i=1; i<=n-1; i++) {
+        cin >> a[i];
+    }
+
+    mii xy;
+    
+    for(ll i=0; i<m; i++) {
+        ll tx,ty;
+        cin >> tx >> ty;
+        xy.insert({tx,ty});
+    }
+
+    
+
+
+    for(ll i=1; i<=n-1; i++) {
+
+
+        if(xy.find(i)!=xy.end())
+            t+=xy[i];
+
+        t-=a[i];
+
+        if(t<=0) {
+            cout << "No" << endl;
+            return;
+        }
+
+     
+    }
+
+
+    cout << "Yes" << endl;
+    return;
+    
+    
 
 
 }
@@ -49,9 +88,8 @@ void solve() {
 
 int main() {
 
-    int t = in_i;
-    while(t--) 
-        solve();
+
+    solve();
 
 
     system("pause");

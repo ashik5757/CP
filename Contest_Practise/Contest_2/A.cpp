@@ -41,7 +41,66 @@ typedef set<string> ss;
 
 void solve() {
 
- 
+    int n = in_i;
+
+    int hb = in_i;
+    int mb = in_i;
+
+    int h[n],m[n];
+
+    for(int i=0; i<n; i++) {
+        cin >> h[i] >> m[i];
+    }
+
+
+    int anshh = 25, ansmm;
+
+    for(int i=0; i<n; i++) {
+
+        int ansh,ansm;
+
+        if(h[i]==hb && m[i]==mb){
+            anshh = 0;
+            ansmm = 0;
+            break;
+        }
+
+        if(h[i]>hb) {
+            ansh = h[i]-hb;
+
+            if(m[i]>=mb)
+                ansm = m[i]-mb;
+            else if(m[i]<mb) {
+                ansm = (60-mb)+m[i];
+                ansh--;
+            }
+        }
+
+        else if(h[i]==hb && m[i]>mb) {
+            ansh = 0;
+            ansm = m[i]-mb;
+        }
+
+        else {
+            ansh = (24-hb) + h[i];
+            
+            if(m[i]>=mb)
+                ansm = m[i]-mb;
+            else if(m[i]<mb) {
+                ansm = (60-mb)+m[i];
+                ansh--;
+            }
+        }
+
+        if(anshh!=min(anshh,ansh))
+            ansmm = ansm;
+        anshh = min(anshh,ansh);
+        
+
+    }
+
+    cout << anshh << " " << ansmm << endl;
+
 
 
 }

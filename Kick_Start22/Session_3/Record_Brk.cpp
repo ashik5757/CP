@@ -39,20 +39,56 @@ typedef set<string> ss;
 
 
 
-void solve() {
+int solve() {
 
- 
+    int n = in_i;
+    int arr[n];
+    mii m;
+    int count = 0;
+    int mx = 0;
 
+
+    for(int i=0; i<n; i++)
+        cin >> arr[i];
+
+    for(int i=0; i<n; i++) {
+
+        if(m[arr[i]]==0) {
+
+            if(i==0) {
+                if(arr[i]>arr[i+1])
+                    count++;
+            }
+            else if (i==n-1) {
+                if(arr[i]>arr[i-1] && arr[i]>mx)
+                    count++;  
+            }
+            else {
+                if(arr[i]>arr[i-1] && arr[i]>arr[i+1] && arr[i]>mx)
+                    count++;                
+            }
+
+            m[arr[i]] = 1;
+            mx = max(mx,arr[i]);
+        }
+
+    }
+
+    return count;
 
 }
 
 
 int main() {
 
-    int t = in_i;
-    while(t--) 
-        solve();
+    vi ans;
 
+    int t = in_i;
+    for(int i=0; i<t; i++)
+        ans.push_back(solve());
+
+    for(int i=0; i<t; i++)
+        cout << "Case #" << i+1 <<": " << ans[i] << endl;
 
     system("pause");
 

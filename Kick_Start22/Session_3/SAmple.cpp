@@ -39,8 +39,21 @@ typedef set<string> ss;
 
 
 
-void solve() {
+ll solve() {
 
+    
+    int n = in_i;
+    int m = in_i;
+
+    ll sum = 0;
+
+    for(int i=0; i<n; i++) {
+        int c = in_i;
+        sum+=c;
+    }
+
+
+    return sum-(int)(sum/m)*m;
  
 
 
@@ -49,10 +62,14 @@ void solve() {
 
 int main() {
 
-    int t = in_i;
-    while(t--) 
-        solve();
+    ll ans[100];
 
+    int t = in_i;
+    for(int i=0; i<t; i++)
+        ans[i]=solve();
+
+    for(int i=0; i<t; i++)
+        cout << "Case #" << i+1 <<": " << ans[i] << endl;
 
     system("pause");
 
