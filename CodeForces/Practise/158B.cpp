@@ -39,61 +39,58 @@ typedef set<string> ss;
 
 
 
-int solve() {
+void solve() {
+
 
     int n = in_i;
     int arr[n];
+
     mii m;
-    int count = 0;
-    int mx = 0;
-
-
-    for(int i=0; i<n; i++)
-        cin >> arr[i];
+    //int m[5] = {0};
+    int sum = 0;
 
     for(int i=0; i<n; i++) {
-
-        if(n==1) {
-            count = 1;
-            break;
-        }
-
-        if(m[arr[i]]==0) {
-
-            if(i==0) {
-                if(arr[i]>arr[i+1])
-                    count++;
-            }
-            else if (i==n-1) {
-                if(arr[i]>arr[i-1] && arr[i]>mx)
-                    count++;
-            }
-            else {
-                if(arr[i]>arr[i-1] && arr[i]>arr[i+1] && arr[i]>mx)
-                    count++;                
-            }
-
-            m[arr[i]] = 1;
-            mx = max(mx,arr[i]);
-        }
-
+        cin >> arr[i];
+        m[arr[i]]++;
+        if(arr[i]==4)
+            sum++;
     }
 
-    return count;
+
+    if(m[3]!=0 && m[3]>=m[1]) {
+        sum+=m[3];
+        sum+=ceil((m[2]*2)/4.0);
+    }
+
+    else if(m[3]==0)
+        sum+=ceil((m[1]+(m[2]*2))/4.0);
+
+    else {
+        sum+=m[3];
+        m[1]-=m[3];
+        sum+=ceil((m[1]+(m[2]*2))/4.0);
+    }
+
+    println(sum);
+
+
+    
+
+
+
+
+
+ 
+
 
 }
 
 
 int main() {
 
-    vi ans;
 
-    int t = in_i;
-    for(int i=0; i<t; i++)
-        ans.push_back(solve());
+    solve();
 
-    for(int i=0; i<t; i++)
-        cout << "Case #" << i+1 <<": " << ans[i] << endl;
 
     system("pause");
 
