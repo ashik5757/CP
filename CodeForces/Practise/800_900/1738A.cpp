@@ -41,7 +41,18 @@ typedef set<string> ss;
 
 void solve() {
 
+    ll n = in_ll;
 
+    int skil[n];
+    ll damage[n];
+
+    for(ll i=0; i<n; i++) {
+        cin >> skill[i];
+    }
+
+    for(ll i=0; i<n; i++) {
+        cin >> damage[i];
+    }
 
 
 }
@@ -49,7 +60,7 @@ void solve() {
 
 int main() {
 
-    int t = in_i;
+    ll t = in_ll;
     while(t--) 
         solve();
 

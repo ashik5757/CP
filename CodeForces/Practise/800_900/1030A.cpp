@@ -41,6 +41,21 @@ typedef set<string> ss;
 
 void solve() {
 
+    int n = in_i;
+
+    int p[n];
+    bool ch = true;
+
+    for(int i=0; i<n; i++) {
+        cin >> p[i];
+        if(p[i]==1)
+            ch = false;
+    }
+
+    if(ch)
+        cout << "EASY" << endl;
+    else
+        cout << "HARD" << endl;
 
 
 
@@ -49,9 +64,8 @@ void solve() {
 
 int main() {
 
-    int t = in_i;
-    while(t--) 
-        solve();
+
+    solve();
 
 
     system("pause");
