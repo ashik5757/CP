@@ -41,28 +41,49 @@ typedef set<string> ss;
 
 void solve() {
 
-    int seive[1001] = {0};
-    int n = in_i;
-    
-    for(int i=1; i<=n; i++) {
-        int tmp;
-        cin >> tmp;
-        seive[tmp] = i;
-    }
+    ll n,q;
+    cin >> n >> q;
 
+    ll sum[n], mxH[n];
+    ll a[n], k[q];
 
-    int mx = -1;
-
-    for(int i=1; i<=1000; i++) {
-        for(int j=1; j<=1000; j++){
-            if(seive[i]!=0 && seive[j]!=0){
-                if(__gcd(i,j)==1)
-                    mx = max(mx,seive[i]+seive[j]);
-            }
+    for(ll i=0; i<n; i++){
+        cin >> a[i];
+        if(i==0){
+            sum[0] = a[0];
+            mxH[0] = a[0];
+        }
+        else {
+            sum[i] = sum[i-1]+a[i];
+            mxH[i] = max(mxH[i-1],a[i]);
         }
     }
 
-    cout << mx << endl;
+        
+    for(ll i=0; i<q; i++)
+        cin >> k[i];
+
+    
+    for(ll i=0; i<q; i++) {
+        
+        int s=0,e=n-1;
+        ll ans = 0;
+
+        while(s<=e) {
+            int mid = s+(e-s)/2;
+
+            if(mxH[mid]<=k[i]) {
+                ans = sum[mid];
+                s = mid+1;
+            }
+            else
+                e = mid-1;
+        }
+
+        cout << ans << " ";
+    }
+
+    cout << endl;
 
 }
 
