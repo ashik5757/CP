@@ -41,13 +41,21 @@ typedef set<string> ss;
 
 void solve() {
 
+    ll n;
+    cin >> n;
+
+    int count2=0, count3=0;
 
 
 
+
+    
 }
 
 
 int main() {
+
+
 
     int t = in_i;
     while(t--) 

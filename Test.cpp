@@ -41,8 +41,15 @@ typedef set<string> ss;
 
 void solve() {
 
+    // int arr[10];
+    // memset(arr, 2, sizeof(arr));
 
+    // for(int i=0; i<10; i++)
+    //     cout << arr[i] << endl;
 
+    ll a = 5/6;
+
+    cout << a << endl;
 
 }
 
