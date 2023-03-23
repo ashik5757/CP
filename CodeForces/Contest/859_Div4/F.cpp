@@ -38,11 +38,52 @@ typedef set<string> ss;
 #define println3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
 
 
+bool isCoL(int x1,int y1,int x2,int y2,int x3, int y3) {
+
+    double s1 = (double)(y2-y1)/(x2-x1);
+    double s2 = (double)(y3-y2)/(x3-x2);
+    double s3 = (double)(y3-y1)/(x3-x1);
+
+    if(s1==s2==s3)
+        return true;
+    else
+        return false;
+
+}
 
 
 void solve() {
 
+    int n,m;
+    cin >> n >> m;
 
+    int si,sj, ti,tj;
+    cin >> si >> sj >> ti >> tj;
+
+    string dir;
+    cin >> dir;
+
+    while(si!=ti && sj!=tj) {
+
+        if(dir=="DR") {
+
+            if(n<m){
+
+            }
+
+
+            dir = "UR";
+        }
+        else if(dir=="DL") {
+
+        }
+        else if(dir=="UR") {
+            
+        }
+        else if(dir=="UL") {
+            
+        }        
+    }
 
 
 }

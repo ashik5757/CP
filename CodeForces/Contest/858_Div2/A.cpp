@@ -34,14 +34,49 @@ typedef set<string> ss;
 #define print_arr(arr,n) for(ll i=0;i<n;i++)cout<<arr[i]<<" ";cout<<endl;
 #define print_arr2(arr,r,c) for(ll i=0;i<r;i++){for(ll j=0;j<c;j++){cout<<arr[i][j]<<" ";}cout<<endl;}
 #define println(p) cout<<p<<endl
-#define println2(p,q) cout<<p<<" "<<q<<endl
-#define println3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
 
 
 
 
-void solve() {
 
+ll solve() {
+
+    ll a,b,c,d;
+    cin >> a >> b >> c >> d;
+
+    ll count = 0;
+
+    if(a==c && b==d)
+        return 0;
+
+    else if(d<b)
+        return -1;
+
+    else {
+        if(b<d) {
+
+            count += abs(d-b);
+            a += (d-b);
+            b = d;
+
+            //cout << a << b << endl;
+
+            if(a<c)
+                return -1;
+
+            count += abs(a-c);
+        }
+
+        else if(b==d) {
+            if(a<c)
+                return -1;
+            else
+                count+= abs(a-c);
+        }
+
+    }
+
+    return count;
 
 
 
@@ -52,11 +87,15 @@ int main() {
 
     int t = in_i;
     while(t--) 
-        solve();
+        cout << solve() << endl;
 
 
-    system("pause");
+    //system("pause");
 
     return 0;
 
 }
+
+
+
+

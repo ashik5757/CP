@@ -34,15 +34,41 @@ typedef set<string> ss;
 #define print_arr(arr,n) for(ll i=0;i<n;i++)cout<<arr[i]<<" ";cout<<endl;
 #define print_arr2(arr,r,c) for(ll i=0;i<r;i++){for(ll j=0;j<c;j++){cout<<arr[i][j]<<" ";}cout<<endl;}
 #define println(p) cout<<p<<endl
-#define println2(p,q) cout<<p<<" "<<q<<endl
-#define println3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
 
 
+int dp[200];
 
 
 void solve() {
 
+    int n,k;
+    cin >> n >> k;
 
+    string s = in_s;
+
+    memset(dp, 0, sizeof dp);
+
+    for(int i=0; i<n; i++) {
+        dp[s[i]]++;
+    }
+
+    int ans = 0;
+    for(int i=0; i<26; i++) {
+        ans += min(dp['a'+ i], dp['A'+i]);
+
+        int t = abs(dp['a'+i]-dp['A'+i])/2;
+        if(t>k) {
+            ans+=k;
+            k=0;
+        }
+        else if(t<=k){
+            ans+=t;
+            k-=t;
+        }
+    }
+
+
+    cout << ans << endl;
 
 
 }
@@ -55,7 +81,7 @@ int main() {
         solve();
 
 
-    system("pause");
+    //system("pause");
 
     return 0;
 

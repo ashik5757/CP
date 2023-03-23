@@ -42,8 +42,48 @@ typedef set<string> ss;
 
 void solve() {
 
+    int n;
+    cin >> n;
+
+    int arr[n];
+    int sum[n+1] = {0};
+    
+    for(int i=0; i<n; i++) {
+        cin >> arr[i];
+        sum[i+1] = sum[i] + arr[i];
+    }
 
 
+    int s = 1;
+    int e = n;
+
+    while(s<=e) {
+
+        if(s==e)
+            break;
+
+        int mid = (s+e)/2;
+        
+        cout << "? " << mid-s+1 << " ";
+        for(int i=s; i<=mid; i++) {
+            cout << i << " ";
+        }
+        cout << endl;
+        cout.flush();
+        
+        ll inq;
+        cin >> inq;
+
+        int t_sum = sum[mid]-sum[s-1];
+
+        if(t_sum<inq)
+            e = mid;
+        else
+            s = mid+1;
+    }
+
+    cout << "! " << e << endl;
+    //fflush(stdout);
 
 }
 

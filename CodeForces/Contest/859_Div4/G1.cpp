@@ -42,7 +42,32 @@ typedef set<string> ss;
 
 void solve() {
 
+    int n;
+    cin >> n;
 
+    int arr[n];
+    for(int i=0; i<n; i++) {
+        cin >> arr[i];
+    }
+
+    sort(arr,arr+n);
+
+    if(arr[0]!=1) {
+        NO;
+        return;
+    }
+
+    ll sum = 1;
+
+    for(int i=1; i<n; i++) {
+        if(sum<arr[i]){
+            NO;
+            return;
+        }
+        sum+=arr[i];
+    }
+
+    YES;
 
 
 }
@@ -55,7 +80,7 @@ int main() {
         solve();
 
 
-    system("pause");
+    //system("pause");
 
     return 0;
 

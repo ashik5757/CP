@@ -34,14 +34,34 @@ typedef set<string> ss;
 #define print_arr(arr,n) for(ll i=0;i<n;i++)cout<<arr[i]<<" ";cout<<endl;
 #define print_arr2(arr,r,c) for(ll i=0;i<r;i++){for(ll j=0;j<c;j++){cout<<arr[i][j]<<" ";}cout<<endl;}
 #define println(p) cout<<p<<endl
-#define println2(p,q) cout<<p<<" "<<q<<endl
-#define println3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
+
 
 
 
 
 void solve() {
 
+    int n;
+    cin >> n;
+
+    int nn = 5*n;
+
+    int arr[nn];
+
+    for(int i=0; i<nn; i++) {
+        cin >> arr[i];
+    }
+
+
+    sort(arr,arr+nn);
+
+    int sum = 0;
+    for(int i=n; i<nn-n; i++)
+        sum+=arr[i];
+    
+    double ans = double(sum)/(nn-2*n);
+
+    cout << setprecision(17) << ans << endl;
 
 
 
@@ -50,9 +70,8 @@ void solve() {
 
 int main() {
 
-    int t = in_i;
-    while(t--) 
-        solve();
+
+    solve();
 
 
     system("pause");

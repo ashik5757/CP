@@ -34,25 +34,54 @@ typedef set<string> ss;
 #define print_arr(arr,n) for(ll i=0;i<n;i++)cout<<arr[i]<<" ";cout<<endl;
 #define print_arr2(arr,r,c) for(ll i=0;i<r;i++){for(ll j=0;j<c;j++){cout<<arr[i][j]<<" ";}cout<<endl;}
 #define println(p) cout<<p<<endl
-#define println2(p,q) cout<<p<<" "<<q<<endl
-#define println3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
+
 
 
 
 
 void solve() {
 
+    int n;
+    cin >> n;
 
+    string s;
+    cin >> s;
 
+    set<pair<int,int>> st;
+
+    st.insert(make_pair(0,0));
+
+    int x = 0, y = 0;
+
+    for(int i=0; i<n; i++) {
+        
+        if(s.at(i)=='L')
+            x--;
+        else if(s.at(i)=='R')
+            x++;
+        else if(s.at(i)=='U')
+            y++;
+        else if(s.at(i)=='D')
+            y--;
+        
+        if(st.find(make_pair(x,y))!=st.end()) {
+            cout << "Yes" << endl;
+            return;
+        }
+
+        st.insert(make_pair(x,y));
+
+    }
+
+    cout << "No" << endl;
 
 }
 
 
 int main() {
 
-    int t = in_i;
-    while(t--) 
-        solve();
+
+    solve();
 
 
     system("pause");

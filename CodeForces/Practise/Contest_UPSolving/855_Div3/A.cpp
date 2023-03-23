@@ -34,15 +34,47 @@ typedef set<string> ss;
 #define print_arr(arr,n) for(ll i=0;i<n;i++)cout<<arr[i]<<" ";cout<<endl;
 #define print_arr2(arr,r,c) for(ll i=0;i<r;i++){for(ll j=0;j<c;j++){cout<<arr[i][j]<<" ";}cout<<endl;}
 #define println(p) cout<<p<<endl
-#define println2(p,q) cout<<p<<" "<<q<<endl
-#define println3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
 
 
+        // int n;
+        // string s;
+        // cin>>n>>s;
+        
+        // for(int i=0;i<n;i++)s[i]=tolower(s[i]);
+
+        // s.erase(unique(s.begin(), s.end()), s.end());
+
+        // if(s == "meow")cout<<"YES\n";
+        // else cout<<"NO\n";
 
 
 void solve() {
 
+    int n;
+    cin >> n;
 
+    vector<string> ch;
+    string t;
+    cin >> t;
+
+    for(int i=0; i<n; i++) {
+        string c;
+        c.push_back(tolower(t.at(i)));
+        ch.push_back(c);
+    }
+
+    auto ss = std::unique(ch.begin(),ch.end());
+
+    string res;
+    for(auto i=ch.begin(); i!=ss; i++)
+        res+=*i;
+
+    
+
+    if(res=="meow")
+        YES;
+    else
+        NO;
 
 
 }
@@ -55,7 +87,7 @@ int main() {
         solve();
 
 
-    system("pause");
+    //system("pause");
 
     return 0;
 

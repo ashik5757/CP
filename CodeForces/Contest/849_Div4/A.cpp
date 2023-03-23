@@ -37,25 +37,49 @@ typedef set<string> ss;
 #define println2(p,q) cout<<p<<" "<<q<<endl
 #define println3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
 
-
+map<int,int> m;
 
 
 void solve() {
 
+    char c;
+    cin >> c;
+
+    if(m[int(c)]==1)
+        YES;
+    else
+        NO;
 
 
 
 }
 
 
+
 int main() {
+
+    for(int i=97; i<=122; i++)
+        m[i]=0;
+    
+    m[int('c')] = 1;
+    m[int('o')] = 1;
+    m[int('d')] = 1;
+    m[int('e')] = 1;
+    m[int('f')] = 1;
+    m[int('o')] = 1;
+    m[int('r')] = 1;
+    m[int('c')] = 1;
+    m[int('e')] = 1;
+    m[int('s')] = 1;
+
+
 
     int t = in_i;
     while(t--) 
         solve();
 
 
-    system("pause");
+    //system("pause");
 
     return 0;
 

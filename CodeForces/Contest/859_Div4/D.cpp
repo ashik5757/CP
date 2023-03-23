@@ -42,8 +42,23 @@ typedef set<string> ss;
 
 void solve() {
 
+	int n;
+	cin >> n;
 
+	string s;
+	cin >> s;
 
+	for(int i=0; i<n; i+=2) {
+		for(int j=1; j<n; j+=2){
+			if(s[i]==s[j]) {
+				NO;
+				return;
+			}
+
+		}
+	}
+
+	YES;
 
 }
 
@@ -51,12 +66,13 @@ void solve() {
 int main() {
 
     int t = in_i;
-    while(t--) 
+    while(t--)
         solve();
 
 
-    system("pause");
+    //system("pause");
 
     return 0;
 
 }
+ 

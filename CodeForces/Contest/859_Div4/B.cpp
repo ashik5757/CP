@@ -42,7 +42,27 @@ typedef set<string> ss;
 
 void solve() {
 
+    int n;
+    cin >> n;
 
+    int arr[n];
+    in_arr(arr,n);
+
+    int mm = 0;
+    int bb = 0;
+
+    for(int i=0; i<n; i++) {
+        if(arr[i]%2==0)
+            mm += arr[i];
+        else
+            bb += arr[i];
+    }
+
+
+	if(mm>bb)
+		YES;
+	else
+		NO;
 
 
 }
@@ -51,11 +71,11 @@ void solve() {
 int main() {
 
     int t = in_i;
-    while(t--) 
+    while(t--)
         solve();
 
 
-    system("pause");
+    //system("pause");
 
     return 0;
 

@@ -21,7 +21,8 @@
         "sstream": "cpp",
         "thread": "cpp",
         "tuple": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "random": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
