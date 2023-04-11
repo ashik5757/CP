@@ -42,31 +42,42 @@ typedef priority_queue<char> pqc;
 #define sort_s(str) sort(str.begin(),str.end());
 #define print_arr(arr,n) for(ll i=0;i<n;i++)cout<<arr[i]<<" ";cout<<endl;
 #define print_arr2(arr,r,c) for(ll i=0;i<r;i++){for(ll j=0;j<c;j++){cout<<arr[i][j]<<" ";}cout<<endl;}
-#define prln1(p) cout<<p<<endl
-#define prln2(p,q) cout<<p<<" "<<q<<endl
-#define prln3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
+#define println(p) cout<<p<<endl
+#define println2(p,q) cout<<p<<" "<<q<<endl
+#define println3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
 
 
 
 
 void solve() {
 
-    int n;
-    cin >> n;
+    int n = in_i;
 
-    set_i s;
+    int a[n], b[n];
 
-    for(int i=0; i<n; i++) {
-        int a;
-        cin >> a;
-        s.insert(a);
+
+    for(int i=0; i<n; i++){
+        cin >> a[i];
+    }
+    for(int i=0; i<n; i++){
+        cin >> b[i];
     }
 
-    
-    if((n-s.size())%2==1)
-        prln1(s.size()-1);
+    for(int i=0; i<n; i++){
+        if(a[i]>b[i])
+            swap(a[i],b[i]);
+    }
+
+    int aMAX = *max_element(a,a+n);
+    int bMAX = *max_element(b,b+n);
+
+    if(aMAX==a[n-1] && bMAX==b[n-1])
+        YES;
     else
-        prln1(s.size());
+        NO;
+
+    
+
 
 
 }

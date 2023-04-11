@@ -42,31 +42,53 @@ typedef priority_queue<char> pqc;
 #define sort_s(str) sort(str.begin(),str.end());
 #define print_arr(arr,n) for(ll i=0;i<n;i++)cout<<arr[i]<<" ";cout<<endl;
 #define print_arr2(arr,r,c) for(ll i=0;i<r;i++){for(ll j=0;j<c;j++){cout<<arr[i][j]<<" ";}cout<<endl;}
-#define prln1(p) cout<<p<<endl
-#define prln2(p,q) cout<<p<<" "<<q<<endl
-#define prln3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
+#define println(p) cout<<p<<endl
+#define println2(p,q) cout<<p<<" "<<q<<endl
+#define println3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
 
 
+bool compare(pair<int,int> a, pair<int,int> b) {
+    return a.first>b.first;
+}
 
+bool compare_idx(pair<int,int> a, pair<int,int> b) {
+    return a.second<b.second;
+}
 
 void solve() {
 
-    int n;
-    cin >> n;
+    int n = in_i;
 
-    set_i s;
-
+    vector<pair<int,int>> vp;
     for(int i=0; i<n; i++) {
-        int a;
-        cin >> a;
-        s.insert(a);
+        int t = in_i;
+        vp.push_back(make_pair(t,i+1));
     }
 
-    
-    if((n-s.size())%2==1)
-        prln1(s.size()-1);
-    else
-        prln1(s.size());
+    sort(vp.begin(),vp.end(),compare);
+
+
+
+    int mx = 0;
+    for(int i=0; i<n; i++) {
+        mx = max(mx, vp[i].first);
+
+        if(i==0) 
+            vp[i].first = vp[i].first - vp[i+1].first;
+        
+        else 
+            vp[i].first = vp[i].first - mx;
+    }
+
+    sort(vp.begin(),vp.end(),compare_idx);
+
+    for(int i=0; i<n; i++) {
+        cout << vp[i].first << " ";
+    }
+
+    BR;
+
+    vp.clear();
 
 
 }

@@ -47,27 +47,44 @@ typedef priority_queue<char> pqc;
 #define prln3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
 
 
-
-
 void solve() {
 
-    int n;
-    cin >> n;
+    int n = in_i;
 
-    set_i s;
+    ll arr[n];
+    in_arr(arr,n);
 
-    for(int i=0; i<n; i++) {
-        int a;
-        cin >> a;
-        s.insert(a);
+
+    int count = 0;
+
+    if(n==1) {
+        YES;
+        return;
+    }
+        
+    
+    else {
+
+        for(int i=0; i<n; i++) {
+
+            int j = i;
+            while(j<n && arr[i]==arr[j])
+                j++;
+            
+            if((i==0 || arr[i]<arr[i-1]) && (j==n || arr[j-1]<arr[j]))
+                count++;
+            
+            i = j-1;
+        }
+
     }
 
-    
-    if((n-s.size())%2==1)
-        prln1(s.size()-1);
+    if(count==1)    
+        YES;
     else
-        prln1(s.size());
-
+        NO;
+    
+    //prln1(count);
 
 }
 

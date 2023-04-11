@@ -42,9 +42,9 @@ typedef priority_queue<char> pqc;
 #define sort_s(str) sort(str.begin(),str.end());
 #define print_arr(arr,n) for(ll i=0;i<n;i++)cout<<arr[i]<<" ";cout<<endl;
 #define print_arr2(arr,r,c) for(ll i=0;i<r;i++){for(ll j=0;j<c;j++){cout<<arr[i][j]<<" ";}cout<<endl;}
-#define prln1(p) cout<<p<<endl
-#define prln2(p,q) cout<<p<<" "<<q<<endl
-#define prln3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
+#define println(p) cout<<p<<endl
+#define println2(p,q) cout<<p<<" "<<q<<endl
+#define println3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
 
 
 
@@ -54,20 +54,56 @@ void solve() {
     int n;
     cin >> n;
 
-    set_i s;
+    string s = in_s;
 
+    int count = 0;
+
+    mci ma;
+    mci mb;
+    
+    for(int i=0; i<n; i++)
+        ma[s[i]]++;
+    
     for(int i=0; i<n; i++) {
-        int a;
-        cin >> a;
-        s.insert(a);
+
+        ma[s[i]]--;
+        mb[s[i]]++;
+
+        if(ma[s[i]]==0)
+            ma.erase(s[i]);
+        
+        int t = ma.size()+mb.size();
+        count = max(count, t);
+    }
+    
+    println(count);
+
+}
+
+void solve2() {
+
+    int n;
+    cin >> n;
+
+    string s = in_s;
+    vi v(n);
+    set_c st;
+
+    for(int i=0; i<n; i++){
+        st.insert(s[i]);
+        v[i] = st.size();
+    }
+    st.clear();
+
+    int count = 0;
+
+    for(int i=n-1; i>0; i--) {
+        st.insert(s[i]);
+        int t = st.size()+v[i-1];
+        count = max(count,t);
     }
 
-    
-    if((n-s.size())%2==1)
-        prln1(s.size()-1);
-    else
-        prln1(s.size());
-
+    println(count);
 
 }
 
@@ -76,7 +112,7 @@ int main() {
 
     int t = in_i;
     while(t--) 
-        solve();
+        solve2();
 
 
     //system("pause");

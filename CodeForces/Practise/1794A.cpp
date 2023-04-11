@@ -46,7 +46,8 @@ typedef priority_queue<char> pqc;
 #define prln2(p,q) cout<<p<<" "<<q<<endl
 #define prln3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
 
-
+#define it_set_print(pts) for(auto it=pts.begin();it!=pts.end();it++)cout<<*it<< " ";cout<<endl;
+#define it_map_print(pts) for(auto it=pts.begin();it!=pts.end();it++)cout<<it.first() << " " << it->second()<<endl;
 
 
 void solve() {
@@ -54,19 +55,28 @@ void solve() {
     int n;
     cin >> n;
 
-    set_i s;
+    string s[2*n-1];
 
-    for(int i=0; i<n; i++) {
-        int a;
-        cin >> a;
-        s.insert(a);
-    }
-
+    for(int i=0; i<(2*n-2); i++)
+        s[i] = in_s; 
     
-    if((n-s.size())%2==1)
-        prln1(s.size()-1);
-    else
-        prln1(s.size());
+
+
+    for(int i=0; i<(2*n-2); i++) {
+        if(s[i].size()==n-1){
+            string ts = s[i];
+            reverse(ts.begin(),ts.end());
+            for(int j=0; j<(2*n-2) && i!=j; j++) {
+                if(s[j]==ts){
+                    YES;
+                    return;
+                }
+            }
+        }  
+    }
+    
+ 
+    NO;
 
 
 }
@@ -79,7 +89,7 @@ int main() {
         solve();
 
 
-    //system("pause");
+    system("pause");
 
     return 0;
 

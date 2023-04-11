@@ -6,19 +6,10 @@ using namespace std;
 typedef vector<int> vi;
 typedef vector<string> vs;
 typedef vector<ll> vll;
-typedef vector<char> vc;
 typedef map<int,int> mii;
 typedef map<string,int> msi;
-typedef map<char,int> mci;
-typedef set<int> set_i;
-typedef set<string> set_s;
-typedef set<char> set_c;
-
-
-typedef priority_queue<int> pqi;
-typedef priority_queue<char> pqc;
-
-
+typedef set<int> si;
+typedef set<string> ss;
 
 #define YES cout<<"YES"<<endl
 #define NO cout<<"NO"<<endl
@@ -42,31 +33,33 @@ typedef priority_queue<char> pqc;
 #define sort_s(str) sort(str.begin(),str.end());
 #define print_arr(arr,n) for(ll i=0;i<n;i++)cout<<arr[i]<<" ";cout<<endl;
 #define print_arr2(arr,r,c) for(ll i=0;i<r;i++){for(ll j=0;j<c;j++){cout<<arr[i][j]<<" ";}cout<<endl;}
-#define prln1(p) cout<<p<<endl
-#define prln2(p,q) cout<<p<<" "<<q<<endl
-#define prln3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
+#define println(p) cout<<p<<endl
+#define println2(p,q) cout<<p<<" "<<q<<endl
+#define println3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
 
 
 
 
 void solve() {
 
-    int n;
-    cin >> n;
+    string s;
+    cin >> s;
 
-    set_i s;
+    mii m;
+    int count = 0;
 
-    for(int i=0; i<n; i++) {
-        int a;
-        cin >> a;
-        s.insert(a);
+    for(int i=0; i<4; i++) {
+        m[s[i]-'0']++;
+        count = max(count,m[s[i]-'0']);
     }
 
-    
-    if((n-s.size())%2==1)
-        prln1(s.size()-1);
-    else
-        prln1(s.size());
+    if(count==4)
+        println(-1);
+    else if(count<=2)
+        println(4);
+    else if(count==3)
+        println(6);
+
 
 
 }
@@ -79,7 +72,7 @@ int main() {
         solve();
 
 
-    //system("pause");
+    system("pause");
 
     return 0;
 

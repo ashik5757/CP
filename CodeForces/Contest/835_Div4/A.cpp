@@ -42,31 +42,28 @@ typedef priority_queue<char> pqc;
 #define sort_s(str) sort(str.begin(),str.end());
 #define print_arr(arr,n) for(ll i=0;i<n;i++)cout<<arr[i]<<" ";cout<<endl;
 #define print_arr2(arr,r,c) for(ll i=0;i<r;i++){for(ll j=0;j<c;j++){cout<<arr[i][j]<<" ";}cout<<endl;}
-#define prln1(p) cout<<p<<endl
-#define prln2(p,q) cout<<p<<" "<<q<<endl
-#define prln3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
+#define prln(p) cout<<p<<endl
+#define println2(p,q) cout<<p<<" "<<q<<endl
+#define println3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
 
 
 
 
 void solve() {
 
-    int n;
-    cin >> n;
+    int a,b,c;
+    cin >> a >> b >> c;
 
-    set_i s;
+    int mx = max({a,b,c});
+    int mn = min({a,b,c});
 
-    for(int i=0; i<n; i++) {
-        int a;
-        cin >> a;
-        s.insert(a);
-    }
-
-    
-    if((n-s.size())%2==1)
-        prln1(s.size()-1);
+    if(mx!=a && mn!=a)
+        prln(a);
+    else if(mx!=b && mn!=b)
+        prln(b);
     else
-        prln1(s.size());
+        prln(c);
+    
 
 
 }

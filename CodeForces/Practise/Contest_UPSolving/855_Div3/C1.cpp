@@ -6,19 +6,10 @@ using namespace std;
 typedef vector<int> vi;
 typedef vector<string> vs;
 typedef vector<ll> vll;
-typedef vector<char> vc;
 typedef map<int,int> mii;
 typedef map<string,int> msi;
-typedef map<char,int> mci;
-typedef set<int> set_i;
-typedef set<string> set_s;
-typedef set<char> set_c;
-
-
-typedef priority_queue<int> pqi;
-typedef priority_queue<char> pqc;
-
-
+typedef set<int> si;
+typedef set<string> ss;
 
 #define YES cout<<"YES"<<endl
 #define NO cout<<"NO"<<endl
@@ -42,32 +33,40 @@ typedef priority_queue<char> pqc;
 #define sort_s(str) sort(str.begin(),str.end());
 #define print_arr(arr,n) for(ll i=0;i<n;i++)cout<<arr[i]<<" ";cout<<endl;
 #define print_arr2(arr,r,c) for(ll i=0;i<r;i++){for(ll j=0;j<c;j++){cout<<arr[i][j]<<" ";}cout<<endl;}
-#define prln1(p) cout<<p<<endl
-#define prln2(p,q) cout<<p<<" "<<q<<endl
-#define prln3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
+#define prln(p) cout<<p<<endl
 
 
 
 
 void solve() {
 
+
     int n;
     cin >> n;
 
-    set_i s;
-
+    vi v;
+    ll sum_p = 0;
+    
     for(int i=0; i<n; i++) {
-        int a;
-        cin >> a;
-        s.insert(a);
+        int t;
+        cin >> t;
+
+        if(t>0) {
+            v.push_back(t);
+        }
+
+        else if(t==0 && v.size()!=0) {
+            sort(v.begin(),v.end(),greater<int>());
+            sum_p+=v[0];
+            v.erase(v.begin());
+            // swap(v[0],v[v.size()-1]);
+            // v.pop_back();
+        }
+
     }
 
-    
-    if((n-s.size())%2==1)
-        prln1(s.size()-1);
-    else
-        prln1(s.size());
 
+    prln(sum_p);
 
 }
 

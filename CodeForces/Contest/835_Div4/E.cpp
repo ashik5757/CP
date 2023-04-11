@@ -6,10 +6,19 @@ using namespace std;
 typedef vector<int> vi;
 typedef vector<string> vs;
 typedef vector<ll> vll;
+typedef vector<char> vc;
 typedef map<int,int> mii;
 typedef map<string,int> msi;
-typedef set<int> si;
-typedef set<string> ss;
+typedef map<char,int> mci;
+typedef set<int> set_i;
+typedef set<string> set_s;
+typedef set<char> set_c;
+
+
+typedef priority_queue<int> pqi;
+typedef priority_queue<char> pqc;
+
+
 
 #define YES cout<<"YES"<<endl
 #define NO cout<<"NO"<<endl
@@ -34,17 +43,63 @@ typedef set<string> ss;
 #define print_arr(arr,n) for(ll i=0;i<n;i++)cout<<arr[i]<<" ";cout<<endl;
 #define print_arr2(arr,r,c) for(ll i=0;i<r;i++){for(ll j=0;j<c;j++){cout<<arr[i][j]<<" ";}cout<<endl;}
 #define println(p) cout<<p<<endl
+#define println2(p,q) cout<<p<<" "<<q<<endl
+#define println3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
 
+
+ll inv(int arr[], int n) {
+
+    ll count = 0, zero = 0;
+
+    for(int i=n-1; i>=0; i--) {
+        if(arr[i]==0)
+            zero++;
+        else
+            count+=zero;
+    }
+
+    return count;
+
+}
 
 
 
 void solve() {
 
 
+    int n;
+    cin >> n;
+
+    int arr[n];
+    in_arr(arr,n);
+
+    ll ans = inv(arr,n);
+
+    if(n==1) {
+        println(ans);
+        return;
+    }
 
 
+    for(int i=0; i<n; i++) {
+        if(arr[i]==0){
+            arr[i] = 1;
+            ans = max(ans,inv(arr,n));
+            arr[i] = 0;
+            break;
+        }
+    }
+
+    for(int i=n-1; i>=0; i--) {
+        if(arr[i]==1) {
+            arr[i] = 0;
+            ans = max(ans,inv(arr,n));
+            break;
+        }
+    }
 
 
+    println(ans);
 
 }
 
@@ -52,11 +107,11 @@ void solve() {
 int main() {
 
     int t = in_i;
-    while(t--) 
+    while(t--)
         solve();
 
 
-    system("pause");
+    //system("pause");
 
     return 0;
 
