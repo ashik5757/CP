@@ -64,18 +64,7 @@ typedef priority_queue<char> pqc;
 
 void solve() {
 
-    // string s = "1234";
 
-    // prln1((int)s[0]-'0');
-
-    // if(8281271277321<8281127127732)
-    //     YES; 
-
-    string s = "828127127732";
-
-    sort(s.begin(),s.end());
-
-    prln1(s);
 
 }
 
