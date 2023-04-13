@@ -59,13 +59,19 @@ typedef priority_queue<char> pqc;
 #define prln2(p,q) cout<<p<<" "<<q<<endl
 #define prln3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
 
-string unique_str_unorder(string s) {
+string unique_str_unorder_STL(string s) {
     vs ch;
     for(int i=0; i<s.size(); i++) {string c;c.push_back(tolower(s.at(i)));ch.push_back(c);}
     auto ss = std::unique(ch.begin(),ch.end());
     string res;
     for(auto i=ch.begin(); i!=ss; i++)res+=*i;
     return res;
+}
+
+string unique_str_unorder(string s){
+    string ss;int j = 0;
+    for(int i=0; i<s.size(); i++) {while(s[j]==s[i])j++;ss.push_back(s[i]);i = j;}
+    return ss;
 }
 
 
