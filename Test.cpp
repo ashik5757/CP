@@ -48,8 +48,9 @@ typedef priority_queue<char> pqc;
 
 #define toLower_str(s) transform(s.begin(),s.end(),s.begin(),::tolower);
 #define toUpper_str(s) transform(s.begin(),s.end(),s.begin(),::toupper);
-#define sort_i(arr) sort(arr,arr+n);
-#define sort_s(str) sort(str.begin(),str.end());
+#define sort_arr(arr,n) sort(arr,arr+n);
+#define sort_vec(vec) sort(vec.begin(),vec.end());
+#define sort_str(str) sort(str.begin(),str.end());
 #define print_arr(arr,n) for(ll i=0;i<n;i++)cout<<arr[i]<<" ";cout<<endl;
 #define print_arr2(arr,r,c) for(ll i=0;i<r;i++){for(ll j=0;j<c;j++){cout<<arr[i][j]<<" ";}cout<<endl;}
 #define it_set_print(st) for(auto it=st.begin();it!=st.end();it++)cout<<*it<< " ";cout<<endl;
