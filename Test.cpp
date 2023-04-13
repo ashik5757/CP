@@ -61,15 +61,10 @@ typedef priority_queue<char> pqc;
 
 string unique_str_unorder(string s) {
     vs ch;
-    for(int i=0; i<s.size(); i++) {
-        string c;
-        c.push_back(tolower(s.at(i)));
-        ch.push_back(c);
-    }
+    for(int i=0; i<s.size(); i++) {string c;c.push_back(tolower(s.at(i)));ch.push_back(c);}
     auto ss = std::unique(ch.begin(),ch.end());
     string res;
-    for(auto i=ch.begin(); i!=ss; i++)
-        res+=*i;
+    for(auto i=ch.begin(); i!=ss; i++)res+=*i;
     return res;
 }
 
