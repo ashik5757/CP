@@ -59,25 +59,40 @@ typedef priority_queue<char> pqc;
 #define prln2(p,q) cout<<p<<" "<<q<<endl
 #define prln3(p,q,r) cout<<p<<" "<<q<<" "<<r<<endl
 
-string unique_str_unorder(string s) {
-    vs ch;
-    for(int i=0; i<s.size(); i++) {
-        string c;
-        c.push_back(tolower(s.at(i)));
-        ch.push_back(c);
-    }
-    auto ss = std::unique(ch.begin(),ch.end());
-    string res;
-    for(auto i=ch.begin(); i!=ss; i++)
-        res+=*i;
-    return res;
-}
-
-
 
 
 
 void solve() {
+
+    int n;
+    cin >> n;
+
+    string s = in_s;
+    ll arr[n];
+    ll sum = 0;
+
+
+    for(int i=0; i<n; i++) {
+        if(s[i]=='L'){
+            arr[i] = i-0;
+            sum+=arr[i];
+        }
+        else{
+            arr[i] = n-1-i;
+            sum+=arr[i];
+        }
+    }
+
+    sort(arr,arr+n);
+
+    for(int i=0; i<n; i++) {
+
+        ll ti = n-1-arr[i];
+        ll tsum = sum-arr[i]+ti;
+        sum = max(sum,tsum);
+        cout << sum << " ";
+    }
+    cout << endl;
 
 
 
@@ -88,7 +103,7 @@ void solve() {
 int main() {
 
     int t = in_i;
-    while(t--) 
+    while(t--)
         solve();
 
 

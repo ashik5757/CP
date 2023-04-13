@@ -87,7 +87,7 @@ int main() {
         solve();
 
 
-    //system("pause");
+    system("pause");
 
     return 0;
 
