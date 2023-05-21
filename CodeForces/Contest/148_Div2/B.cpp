@@ -40,7 +40,7 @@ typedef priority_queue<char> pqc;
 #define in_c ({char tmp; cin>>tmp; tmp;})
 #define in_arr(arr,n) for(ll i=0;i<n;i++)cin>>arr[i];
 #define in_arr2(arr,r,c) for(ll i=0;i<r;i++)for(ll j=0;j<c;j++)cin>>arr[i][j];
-#define in_vi(vec,n) for(ll i=0;i<n;i++){int tmp;cin>>tmp;vec.push_back(tmp);};
+#define in_vill(vec,n) for(ll i=0;i<n;i++){ll tmp;cin>>tmp;vec.push_back(tmp);};
 #define in_vs(vec,n) for(ll i=0;i<n;i++){string tmp;cin>>tmp;vec.push_back(tmp);};
 #define in_set_i(set,n) for(ll i=0;i<n;i++){int tmp;cin>>tmp;set.insert(tmp);};
 #define in_set_s(set,n) for(ll i=0;i<n;i++){string tmp;cin>>tmp;set.insert(tmp);};
@@ -76,34 +76,30 @@ string unique_str_unorder(string s){
 }
 
 
-bool possible(int n, int m) {
-
-    if(n==m)
-        return true;
-    
-    else if(n%3!=0)
-        return false;
-
-    else
-        return possible(n/3, m) || possible(2*(n/3), m);
-
-
-}
 
 
 
 void solve() {
 
-    ll n,m;
-    cin >> n >> m;
+    ll n,k;
+    cin >> n >> k;
 
+    vector<ll> arr, sArr;
 
-    if(n<m){
-        NO;
-        return;
-    }
+    in_vill(arr,n);
 
-    possible(n,m)? YES:NO;
+    sort_vec(arr);
+
+    sArr.push_back(arr[0]);
+    for(ll i=1; i<n; i++)
+        sArr.push_back(arr[i]+sArr[i-1]);
+
+    print_vec(arr,n);
+    print_vec(sArr,n);
+    
+    // while(k--) {
+    //     if()
+    // }
 
 }
 
@@ -115,7 +111,7 @@ int main() {
         solve();
 
 
-    //system("pause");
+    system("pause");
 
     return 0;
 

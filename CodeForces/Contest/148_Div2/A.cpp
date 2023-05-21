@@ -76,34 +76,26 @@ string unique_str_unorder(string s){
 }
 
 
-bool possible(int n, int m) {
-
-    if(n==m)
-        return true;
-    
-    else if(n%3!=0)
-        return false;
-
-    else
-        return possible(n/3, m) || possible(2*(n/3), m);
-
-
-}
 
 
 
 void solve() {
 
-    ll n,m;
-    cin >> n >> m;
+    string s = in_s;
 
-
-    if(n<m){
+    if(s.size()<4){
         NO;
         return;
     }
 
-    possible(n,m)? YES:NO;
+    for(int i=1; i<s.size()/2; i++) {
+        if(s[i]!=s[i-1]){
+            YES;
+            return;
+        }
+    }
+
+    NO;
 
 }
 
